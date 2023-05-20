@@ -6,6 +6,14 @@ const Nav = () => {
   const menuToggle = () => {
     $("#layout-menu").addClass("menu-open");
   };
+  const [user, setuser] = React.useState({});
+  React.useEffect(() => {
+    let userdata = JSON.parse(window.localStorage.getItem("user"));
+    setuser(userdata);
+    if (!userdata || !userdata.name) {
+      window.location.href = "/";
+    }
+  }, []);
   return (
     <>
       {" "}
@@ -50,7 +58,8 @@ const Nav = () => {
               >
                 <div className="avatar avatar-online">
                   <img
-                    src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                    src={user.url}
+                    referrerPolicy="no-referrer"
                     alt=""
                     className="w-px-40 h-auto rounded-circle"
                   />

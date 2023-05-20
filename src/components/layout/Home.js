@@ -106,30 +106,36 @@ const Home = () => {
                       <h2>Chats</h2>
                       <div className="contact">
                         {Object.values(userdata).map((item, id) => {
-                          return item.name != curr_user.name
-                            ? (console.log("hsiahhyx", item.chats[0]["name"]),
-                              (
-                                <>
-                                  <div
-                                    key={id}
-                                    onClick={(e) =>
-                                      setMessageScreen(e, item.chats[0])
-                                    }
-                                    className="pic rogers"
-                                    style={{
-                                      backgroundImage: `url(${item.chats[0]["url"]})`,
-                                    }}
-                                    // data-message={item.url}
-                                  ></div>
+                          return item.name != curr_user.name ? (
+                            <>
+                              <div style={{ marginBottom: "50px" }}>
+                                <div
+                                  key={id}
+                                  onClick={(e) =>
+                                    setMessageScreen(e, item.chats[0])
+                                  }
+                                  className="pic rogers"
+                                  // style={{
+                                  //   backgroundImage: `url(${item.chats[0]["url"]})`,
+                                  // }}
 
-                                  <div className="badge">1</div>
-                                  <div className="name">{item.name}</div>
-                                  <div className="message">
-                                    {item.chats[0]["messages"][0]["message"]}
-                                  </div>
-                                </>
-                              ))
-                            : null;
+                                  // data-message={item.url}
+                                >
+                                  <img
+                                    style={{ borderRadius: "50%" , width:"70px",height:"70px" }}
+                                    referrerPolicy="no-referrer"
+                                    src={item.chats[0]["url"]}
+                                  />
+                                </div>
+
+                                <div className="badge">1</div>
+                                <div className="name">{item.name}</div>
+                                <div className="message">
+                                  {item.chats[0]["messages"][0]["message"]}
+                                </div>
+                              </div>
+                            </>
+                          ) : null;
                         })}
                       </div>
                     </div>
@@ -151,15 +157,15 @@ const Home = () => {
                               <>
                                 {item.sender == curr_user.name ? (
                                   <div className="message parker">
-                                    {item.message}<br/>
+                                    {item.message}
+                                    <br />
                                     <span>{item.sender}</span>
                                   </div>
                                 ) : (
                                   <div className="message stark">
                                     {item.message}
-                                    <br/>
+                                    <br />
                                     <span>{item.sender}</span>
-                                    
                                   </div>
                                 )}
                               </>
