@@ -85,23 +85,33 @@ const GroupChat = () => {
                           return (
                             item.members.includes(curr_user.name) && (
                               <>
-                                <div
-                                  onClick={(e) => setMessageScreen(e, item)}
-                                  className="pic rogers"
-                                  style={{
-                                    backgroundImage: `url(${item.url})`,
-                                  }}
-                                  // data-message={item.url}
-                                ></div>
+                                <div style={{ marginBottom: "50px" }}>
+                                  <div
+                                    onClick={(e) => setMessageScreen(e, item)}
+                                    className="pic rogers"
 
-                                <div className="badge">1</div>
-                                <div className="name">{item.name}</div>
-                                <div className="message">
-                                  {
-                                    item.chats[0]["messages"][
-                                      item.chats[0]["messages"].length - 1
-                                    ]["message"]
-                                  }
+                                    // data-message={item.url}
+                                  >
+                                    <img
+                                      style={{
+                                        borderRadius: "50%",
+                                        width: "70px",
+                                        height: "70px",
+                                      }}
+                                      referrerPolicy="no-referrer"
+                                      src={item.url}
+                                    />
+                                  </div>
+
+                                  <div className="badge">1</div>
+                                  <div className="name">{item.name}</div>
+                                  <div className="message">
+                                    {
+                                      item.chats[0]["messages"][
+                                        item.chats[0]["messages"].length - 1
+                                      ]["message"]
+                                    }
+                                  </div>
                                 </div>
                               </>
                             )
@@ -131,16 +141,18 @@ const GroupChat = () => {
                               <>
                                 {item.sender == curr_user.name ? (
                                   <div className="message parker">
-                                    {item.message}<br/>
+                                    {item.message}
+                                    <br />
                                     <span>{item.sender}</span>
                                   </div>
                                 ) : (
-                                    <>
-                                  <div className="message stark">
-                                    {item.message}<br/>
-                                    <span>{item.sender}</span>
-                                  </div>
-                                    </>
+                                  <>
+                                    <div className="message stark">
+                                      {item.message}
+                                      <br />
+                                      <span>{item.sender}</span>
+                                    </div>
+                                  </>
                                 )}
                               </>
                             );

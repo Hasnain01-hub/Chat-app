@@ -9,7 +9,7 @@ import { realtime } from "../../configs/Firebase";
 const CraeteGroup = () => {
   const initobj = {
     name: "",
-    desc: ",",
+    desc: "",
     url: "",
   };
   const [user, setuser] = useState({});
