@@ -41,6 +41,7 @@ const Login = () => {
               "user",
               JSON.stringify(separatedString)
             );
+            nav("/dashboard");
           } else {
             await db
               .collection("users")
@@ -65,6 +66,7 @@ const Login = () => {
                     id: user.email,
                   })
                 );
+                nav("/dashboard");
               })
               .catch((error) => {
                 console.log(error);
