@@ -133,7 +133,7 @@ const GroupChat = () => {
                         </div>
                         <div className="messages" id="chat">
                           <div className="time">
-                            {message.chats[0]["messages"][0].time}
+                            {message.chats[0]["messages"][0]?.time??new Date().toLocaleString()}
                           </div>
 
                           {message.chats[0]["messages"]?.map((item) => {
